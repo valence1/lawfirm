@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Book Appointment</title>
+    <style>
+        body {
+            background-image: url("/images/law.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        form {
+            margin: 20px auto;
+            max-width: 500px;
+            background-color: #fff;
+            border-radius: 4px;
+            padding: 20px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        textarea {
+            height: 100px;
+        }
+
+        button[type="submit"] {
+            background-color: #008CBA;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0077A8;
+        }
+    </style>
+</head>
+<body>
+<h2>Book Appointment</h2>
+<form action="/saveBooking" method="post" enctype="multipart/form-data">
+
+    <label for="name">Lawyer Name:</label>
+    <input type="text" id="name" name="lawyerName" value="Samantha Carter" required readonly/>
+
+    <label for="date">Appointment Date:</label>
+    <input type="date" id="date" name="date" placeholder="Enter date in MM/DD/YYYY format" required/>
+
+    <label for="time">Appointment Time:</label>
+    <input type="time" id="time" name="time" placeholder="Enter time in HH:MM format" required/>
+
+    <label for="description">Description:</label>
+    <textarea id="description" name="description" placeholder="Enter appointment details"></textarea>
+
+    <p>PDF File: <label for="pdfFile">Choose a file</label> <input type="file" id="pdfFile" name="pdfFile" accept="application/pdf"/></p>
+
+    <button type="submit">Submit</button>
+</form>
+</body>
+</html>

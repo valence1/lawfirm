@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Lawyer List</title>
+    <style>
+        body {
+            background-image: url("/images/law.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        p {
+            margin: 0 0 10px 0;
+            font-size: 16px;
+            color: #666;
+        }
+
+        a {
+            color: #008CBA;
+            text-decoration: none;
+        }
+
+        .lawyer-list {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .lawyer-card {
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 300px;
+            min-height: 200px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease-in-out;
+            cursor: pointer;
+        }
+
+        .lawyer-card:hover {
+            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .lawyer-card h3 {
+            margin-top: 0;
+            font-size: 20px;
+            color: #333;
+        }
+
+        .lawyer-card p {
+            margin-top: 10px;
+        }
+
+        .lawyer-card .rating {
+            font-size: 16px;
+            font-weight: bold;
+            color: #008CBA;
+            margin-bottom: 10px;
+        }
+
+        .book-button {
+            background-color: #008CBA;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .book-button:hover {
+            background-color: #0077A8;
+        }
+    </style>
+</head>
+<body>
+<p><a th:href="@{/}">Home</a></p>
+<p><a th:href="@{/logout}">Log out</a></p>
+<h2>Choose a Lawyer</h2>
+<p>Below is a list of our lawyers.</p>
+<div class="lawyer-list">
+    <form th:action="@{/bookings}" method="get">
+
+    <div class="lawyer-card">
+        <h3>Valena Smith - Criminal Defense Lawyer</h3>
+        <div class="rating">4.5/5</div>
+        <p>Valena Smith is a highly experienced criminal defense lawyer with over 20 years of experience in defending clients charged with serious criminal offenses. He has a track record of winning difficult cases and is known for his tenacity in the courtroom. John is a former prosecutor and brings a unique perspective to his cases, allowing him to identify weaknesses in the prosecution's case and exploit them to his client's advantage. He is a skilled negotiator and is often able to secure favorable plea bargains for his clients.</p>
+        <button class="book-button" type="submit">Book Appointment</button>
+    </div></form>
+    <form th:action="@{/booking1}" method="get">
+    <div class="lawyer-card">
+        <h3>Sarah Johnson - Family Law Attorney</h3>
+        <div class="rating">4.8/5</div>
+        <p>Sarah Johnson is a compassionate and dedicated family law attorney who specializes in helping clients navigate complex family law matters. She has extensive experience handling cases related to divorce, child custody, child support, and spousal support. Sarah is committed to helping her clients achieve the best possible outcomes in their cases and is known for her strategic thinking and creative problem-solving skills. </p>
+        <button class="book-button" type="submit">Book Appointment</button>
+    </div></form>
+    <form th:action="@{/booking2}" method="get">
+    <div class="lawyer-card">
+        <h3>Yves Johnson - Immigration Lawyer</h3>
+        <div class="rating">4.2/5</div>
+        <p>Yves Johnson is an experienced immigration lawyer who has helped countless individuals and families navigate the complex and ever-changing landscape of U.S. immigration law. He has a deep understanding of the legal and procedural requirements for various types of immigration cases and is dedicated to helping his clients achieve their immigration goals. Michael is fluent in multiple languages and has a particular expertise in helping clients from diverse cultural backgrounds. </p>
+        <button class="book-button" type="submit">Book Appointment</button>
+    </div></form>
+    <form th:action="@{/booking3}" method="get">
+    <div class="lawyer-card">
+        <h3>Samantha Carter - Employment Law Attorney</h3>
+        <div class="rating">4.7/5</div>
+        <p>Samantha Carter is a skilled employment law attorney who is committed to protecting the rights of employees in the workplace. She has extensive experience representing clients in a wide range of employment law matters, including discrimination, harassment, wrongful termination, and wage and hour disputes. Samantha is a fierce advocate for her clients and is known for her ability to negotiate favorable settlements with employers while also being prepared to take cases to trial when necessary. </p>
+        <button class="book-button" type="submit">Book Appointment</button>
+    </div></form>
+    <form th:action="@{/booking4}" method="get">
+    <div class="lawyer-card">
+        <h3>David Rodriguez - Personal Injury Lawyer</h3>
+        <div class="rating">4.4/5</div>
+        <p>David Rodriguez is a compassionate and effective personal injury lawyer who has helped countless clients recover compensation for their injuries. He has extensive experience representing clients in a wide range of personal injury cases, including car accidents, slip and falls, and medical malpractice. David is dedicated to helping his clients navigate the complex legal process and is committed to securing the best possible outcomes for them. </p>
+        <button class="book-button" type="submit">Book Appointment</button>
+    </div></form>
+    <form th:action="@{/booking5}" method="get">
+    <div class="lawyer-card">
+        <h3>Lisa Umutoni - Intellectual Property Lawyer</h3>
+        <div class="rating">4.1/5</div>
+        <p>Lisa Umutoni is a highly skilled intellectual property lawyer who helps clients protect their intellectual property rights. She has extensive experience advising clients on issues related to patents, trademarks, copyrights, and trade secrets. Lisa is committed to helping her clients develop effective intellectual property strategies that allow them to protect their valuable creations and stay ahead of the competition. She is known for her attention to detail and her ability to find creative solutions to complex legal problems. </p>
+        <button class="book-button" type="submit">Book Appointment</button>
+    </div>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+
+<head>
+   <title>User Dashboard</title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <!-- Link to CSS Animation Library -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+   <!-- Link to Bootstrap CSS -->
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+   <style>
+      body {
+         background-image: url("/images/law.png");
+         background-repeat: no-repeat;
+         background-size: cover;
+         font-family: Arial, sans-serif;
+      }
+
+      h2 {
+         color: #333;
+      }
+
+      form {
+         margin: 20px auto;
+         max-width: 500px;
+         background-color: #fff;
+         border-radius: 4px;
+         padding: 20px;
+         box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      label {
+         display: block;
+         font-size: 16px;
+         color: #333;
+         margin-bottom: 5px;
+      }
+
+      input[type="text"],
+      textarea {
+         width: 100%;
+         padding: 10px;
+         border: 1px solid #ccc;
+         border-radius: 4px;
+         box-sizing: border-box;
+         margin-bottom: 20px;
+         font-size: 16px;
+      }
+
+      textarea {
+         height: 100px;
+      }
+
+      button[type="submit"] {
+         background-color: #008CBA;
+         color: #fff;
+         border: none;
+         padding: 10px 20px;
+         border-radius: 4px;
+         cursor: pointer;
+         margin-top: 10px;
+      }
+
+      button[type="submit"]:hover {
+         background-color: #0077A8;
+      }
+
+      /* Navbar Styling */
+      .navbar {
+         background-color: #333;
+      }
+
+      .navbar-nav {
+         margin-left: auto;
+      }
+
+      .nav-link {
+         color: #fff !important;
+      }
+
+      .nav-link:hover {
+         color: #fff !important;
+      }
+
+      /* Animation Styling */
+      .animated {
+         animation-duration: 1s;
+         animation-fill-mode: both;
+      }
+
+      .fadeInDown {
+         animation-name: fadeInDown;
+      }
+
+      .fadeInUp {
+         animation-name: fadeInUp;
+      }
+   </style>
+
+</head>
+
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+   <a class="navbar-brand animated fadeInDown" href="#">Lawfirm Dashboard</a>
+   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+           aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+   </button>
+   <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class
+                  ="navbar-nav">
+         <li class="nav-item active">
+            <a class="nav-link" th:href="@{/}">Home <span class="sr-only">(current)</span></a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link" th:href="@{/viewClients}">View Bookings</a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link" th:href="@{/logout}">Log out</a>
+         </li>
+      </ul>
+   </div>
+</nav><div class="container">
+   <h1 class="animated fadeInUp" style="color: #0c5460; text-align: center; font-weight: bolder">Welcome Law Firm </h1>
+
+</div>
+
+<!-- Link to jQuery and Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNSB6T0"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+</html>

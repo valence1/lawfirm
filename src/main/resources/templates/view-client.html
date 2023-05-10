@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Clients Bookings</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+
+
+    <style>
+        body {
+            background-image: url("/images/law.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        form {
+            margin: 20px auto;
+            max-width: 500px;
+            background-color: #fff;
+            border-radius: 4px;
+            padding: 20px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+            color: #0c5460;
+        }
+
+        label {
+            display: block;
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        textarea {
+            height: 100px;
+        }
+
+        button[type="submit"] {
+            background-color: #008CBA;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0077A8;
+        }
+    </style>
+</head>
+<body>
+<div class="container-fluid mt-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-10">
+            <div class="card">
+                <div class="card-header">
+                    <h1 class="text-center text-primary mb-0">Client Bookings</h1>
+                </div>
+                <div class="card-body">
+                    <table class="table table-hover table-bordered table-sm fade-in">
+                        <thead>
+                        <tr>
+                            <th scope="col">Lawyer Name:</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Time</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">PDF File</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="booking : ${booking}">
+                            <td th:text="${booking.lawyerName}"></td>
+                            <td th:text="${booking.date}"></td>
+                            <td th:text="${booking.time}"></td>
+                            <td th:text="${booking.description}"></td>
+                            <td>
+                                <a th:if="${booking.pdf != null}" th:href="@{/download/{id}(id=${booking.id})}" target="_blank">
+                                    <i class="far fa-file-pdf"></i>
+                                    <span th:text="${booking.pdf_name}"></span>
+                                </a>
+                            </td>
+                            <td>
+                                <a class="btn btn-sm btn-primary" th:href="@{/editBooking/{id}(id=${booking.id})}">Edit</a>
+                                <a class="btn btn-sm btn-danger" th:href="@{/deleteBooking/{id}(id=${booking.id})}" onclick="return confirm('Are you sure you want to delete this booking?')">Delete</a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+                <div class="card-footer">
+                    <a href="/mail" class="btn btn-primary">Reply to the Clients</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNVQ8o7"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+</html>

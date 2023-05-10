@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Mail</title>
+    <style>
+        body {
+            background: url("/images/law.png") no-repeat center/cover;
+            font-family: Arial, sans-serif;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        form {
+            margin: 20px auto;
+            max-width: 500px;
+            background: #fff;
+            border-radius: 4px;
+            padding: 20px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        textarea {
+            height: 100px;
+        }
+
+        button[type="submit"] {
+            background: #008CBA;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button[type="submit"]:hover {
+            background: #0077A8;
+        }
+
+    </style>
+</head>
+<body>
+
+<h1>Mail</h1>
+
+<table>
+    <thead>
+    <tr>
+        <th scope="col">Lawyer Name:</th>
+        <th scope="col">Date</th>
+        <th scope="col">Time</th>
+        <th scope="col">Description</th>
+        <th scope="col">PDF File</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="booking : ${booking}">
+        <td th:text="${booking.lawyerName}"></td>
+        <td th:text="${booking.date}"></td>
+        <td th:text="${booking.time}"></td>
+        <td th:text="${booking.description}"></td>
+        <td>
+            <form th:action="@{/sendEmail}" method="post">
+                <input type="hidden" name="email" th:value="${booking.email}"/>
+                <label for="message">Message:</label>
+                <input type="text" id="message" name="message"/>
+                <button type="submit">Send Email</button>
+            </form>
+            <br>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<form th:action="@{/admin/dashboard}" method="get">
+    <button class="cancel-btn">Cancel</button>
+</form>
+</body>
+</html>
