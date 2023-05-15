@@ -190,6 +190,7 @@ import java.util.Optional;
         return "admin/mail";
     }
 
+
     @PostMapping("/sendEmail")
     public String sendEmail(@RequestParam String email, @RequestParam String message, Model model) {
         SimpleMailMessage mailMessage = new SimpleMailMessage();
@@ -199,6 +200,13 @@ import java.util.Optional;
         emailSender.send(mailMessage);
         model.addAttribute("successMessage", "Message sent successfully!");
         return "admin/dashboard";
+    }
+
+    @GetMapping("/entries/search")
+    public String searchEntries(@RequestParam("lawyerName") String lawyerName, Model model) {
+        List<LawFirm> entries = lawFirmRepository.findByLawyerNameContaining(lawyerName);
+        model.addAttribute("entries", entries);
+        return "admin/search";
     }
 
 }
